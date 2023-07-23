@@ -1,0 +1,116 @@
+/* BookingForm.css */
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.field {
+  margin-bottom: 5px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="datetime-local"] {
+  /* To remove default arrow in datetime-local input */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add custom icon for datetime-local input */
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 32px;
+}
+
+.error-message {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.reserve-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  margin-left: 150px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Customize select dropdown appearance */
+.options {
+  position: relative;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Optional: Add more styling to make the form visually appealing */
+/* For example, add background color, box shadows, etc. */
+
+/* Additional styling for select dropdown */
+select {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Style the occasion select dropdown differently */
+.field.occasion select {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+}
+
+/* Optional: Add some spacing between input fields */
+.field + .field {
+  margin-top: 15px;
+}
+
+/* Optional: Style the form header */
+.form-header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* Optional: Style the form footer */
+.form-footer {
+  text-align: center;
+  margin-top: 30px;
+}

@@ -1,23 +1,29 @@
-import React from 'react';
+import React from "react";
 import LogoFooter from "../assets/logoFooter.png";
+import "../styles/Footer.css";
+import { FaTwitter, FaFacebook } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="leftContent">
-        <img src={LogoFooter} alt="Little Lemon Restaurant"  className='logoFooter'/>
+        <img
+          src={LogoFooter}
+          alt="Little Lemon Restaurant"
+          className="logoFooter"
+        />
+        <p className="socialText">Follow us on social media:</p>
         <div className="socialMedia">
-          {/* Replace the links below with the actual social media links */}
-          <a href="https://www.facebook.com/littlelemonrestaurant" target="_blank" rel="noopener noreferrer">
-            <img src="facebook_icon" alt="Facebook" className="socialIcon" />
+          <a href="https://twitter.com/your_twitter_account">
+            <FaTwitter size={32} />
           </a>
-          <a href="https://www.instagram.com/littlelemonrestaurant" target="_blank" rel="noopener noreferrer">
-            <img src="instagram_icon" alt="Instagram" className="socialIcon" />
+          <a href="https://www.facebook.com/your_facebook_page">
+            <FaFacebook size={32} />
           </a>
-          <a href="https://www.twitter.com/littlelemonrestaurant" target="_blank" rel="noopener noreferrer">
-            <img src="twitter_icon" alt="Twitter" className="socialIcon" />
+          <a href="https://www.instagram.com/your_instagram_account">
+            <IoLogoInstagram size={32} />
           </a>
-          {/* Add more social media icons as needed */}
         </div>
       </div>
       <div className="contactInfo">
@@ -30,9 +36,15 @@ const Footer = () => {
       <div className="usefulLinks">
         <h3>Useful Links</h3>
         <ul>
-          <li><a href="/menu">Menu</a></li>
-          <li><a href="/reservations">Reservations</a></li>
-          <li><a href="/about">About Us</a></li>
+          <li>
+            <a href="/menu">Menu</a>
+          </li>
+          <li>
+            <a href="/reservations">Reservations</a>
+          </li>
+          <li>
+            <a href="/about">About Us</a>
+          </li>
           {/* Add more useful links here */}
         </ul>
       </div>

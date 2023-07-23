@@ -3,12 +3,12 @@ import "./App.css";
 import HomePage from "./Pages/HomePage.js";
 import BookingPage from "./Pages/BookingPage.js";
 import Footer from "./components/Footer.js";
-import Header from "./components/Header.js";
+import HeaderElement from "./components/HeaderElement.js";
 
 function App() {
   return (
     <Router>
-      <Header />
+      <HeaderElement />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/booking" element={<BookingPage />} />
