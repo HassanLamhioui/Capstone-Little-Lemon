@@ -1,18 +1,75 @@
+/* Mobile navigation menu */
 .mobile-nav {
   display: none;
 }
 
+/* Media query for mobile devices (max-width: 1024px) */
 @media screen and (max-width: 1024px) {
+  /* Hide the regular navigation */
+  .navigation {
+    display: none;
+  }
+
+  /* Show the mobile navigation */
   .mobile-nav {
     display: flex;
+  }
+
+  /* Adjust the logo image size for better responsiveness */
+  .logo-img {
+    height: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  /* Adjust padding for better spacing */
+  .header {
+    padding: 10px 15px;
+  }
+
+  /* Style mobile navigation links */
+  .mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+  }
+
+  .mobile-nav ul li {
+    padding: 10px;
   }
 
   .mobile-nav ul li a {
     font-size: smaller;
     font-weight: 500;
+    color: #ffffff; /* Text color for mobile navigation links */
+    text-decoration: none;
   }
 
   .mobile-nav ul li .active-links.active {
-    color: #495e57;
+    color: #495e57; /* Text color for active mobile link */
+  }
+}
+/* Media query for mobile devices (max-width: 768px) */
+
+@media screen and (max-width: 768px) {
+  /* Adjust the logo image size further for small screens */
+  .logo-img {
+    height: 2rem;
+    padding-left: 1rem;
+  }
+
+  /* Adjust padding for better spacing */
+  .header {
+    padding: 10px;
+  }
+
+  /* Style mobile navigation links for small screens */
+  .mobile-nav ul li {
+    padding: 8px;
+  }
+
+  .mobile-nav ul li a {
+    font-size: 12px;
   }
 }

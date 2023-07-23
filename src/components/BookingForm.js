@@ -41,83 +41,92 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(formSubmit)}>
-      <fieldset>
-        <div className="field">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            placeholder="First Name"
-            name="firstName"
-            {...register("firstName")}
-          />
-          <span className="error-message">{errors.firstName?.message}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            {...register("lastName")}
-          />
-          <span className="error-message">{errors.lastName?.message}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            placeholder="text@example.com"
-            name="email"
-            {...register("email")}
-          />
-          <span className="error-message">{errors.email?.message}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="telephone">Telephone</label>
-          <input
-            type="tel"
-            placeholder="1111 00 00 00 00"
-            name="telephone"
-            {...register("telephone")}
-          />
-          <span className="error-message">{errors.telephone?.message}</span>
-        </div>
-
-        {/*<div className="guestsdate">*/}
-        <div className="field occasion">
-          <label htmlFor="occasion">Occasion (optional)</label>
-          <div className="options">
-            <select name="occasion" {...register("occasion")}>
-              <option value="select">Select occasion</option>
-              <option value="birthday">Birthday</option>
-              <option value="engagement">Engagement</option>
-              <option value="anniversary">Anniversary</option>
-            </select>
+    <div className="form-container">
+      <form onSubmit={handleSubmit(formSubmit)} className="booking-form">
+        <fieldset>
+          <div className="field">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+              {...register("firstName")}
+            />
+            <span className="error-message">{errors.firstName?.message}</span>
           </div>
-        </div>
-        <div className="field guest">
-          <label htmlFor="guests">Guests</label>
-          <input
-            type="number"
-            placeholder="2"
-            name="guests"
-            {...register("guests")}
-          />
-          <span className="error-message">{errors.guests?.message}</span>
-        </div>
-        {/*</div>*/}
+          <div className="field">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              {...register("lastName")}
+            />
+            <span className="error-message">{errors.lastName?.message}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              placeholder="text@example.com"
+              name="email"
+              {...register("email")}
+            />
+            <span className="error-message">{errors.email?.message}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="telephone">Telephone</label>
+            <input
+              type="tel"
+              placeholder="1111 00 00 00 00"
+              name="telephone"
+              {...register("telephone")}
+            />
+            <span className="error-message">{errors.telephone?.message}</span>
+          </div>
 
-        <div className="field">
-          <label htmlFor="date">Date & Time</label>
-          <input type="datetime-local" name="date" {...register("date")} />
-          <span className="error-message">{errors.date?.message}</span>
-        </div>
-        <button className="reserve-btn" type="submit">
-          Reserve
-        </button>
-      </fieldset>
-    </form>
+          {/*<div className="guestsdate">*/}
+          <div className="field occasion">
+            <label htmlFor="occasion">Occasion (optional)</label>
+            <div className="options">
+              <select name="occasion" {...register("occasion")}>
+                <option value="select">Select occasion</option>
+                <option value="birthday">Birthday</option>
+                <option value="engagement">Engagement</option>
+                <option value="anniversary">Anniversary</option>
+              </select>
+            </div>
+          </div>
+          <div className="field guest">
+            <label htmlFor="guests">Guests</label>
+            <input
+              type="number"
+              placeholder="2"
+              name="guests"
+              {...register("guests")}
+            />
+            <span className="error-message">{errors.guests?.message}</span>
+          </div>
+          {/*</div>*/}
+
+          <div className="field">
+            <label htmlFor="date">Date & Time</label>
+            <input type="datetime-local" name="date" {...register("date")} />
+            <span className="error-message">{errors.date?.message}</span>
+          </div>
+          <button className="reserve-btn" type="submit">
+            Reserve
+          </button>
+        </fieldset>
+      </form>
+      <div className="description">
+        <p>
+          Experience the epitome of luxury and tradition at Little Lemon. Book your table for an unforgettable dining journey.
+          <br/>
+          Immerse yourself in culinary delights and impeccable service.
+        </p>
+      </div>
+    </div>
   );
 }
 

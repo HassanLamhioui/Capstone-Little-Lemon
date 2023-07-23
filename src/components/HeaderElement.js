@@ -8,15 +8,11 @@ import MobileNav from "../components/MobileNav.js";
 const Navbar = () => {
   return (
     <div className="header">
-      <div className="header-wrapper">
-        <div className="image-wrapper">
           <Link to="/">
             <img className="logo-img" src={LogoHeader} alt="Logo Little Lemon" />
           </Link>
-        </div>
         <Navigation />
         <MobileNav />
-      </div>
     </div>
   );
 };

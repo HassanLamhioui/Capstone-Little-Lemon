@@ -1,68 +1,61 @@
-.header {
-  display: flex;
-  background-color: #fff;
-  border-bottom: 10px solid #495e57;
-  width: 100%;
-  z-index: 3;
-}
+/* HeaderElement.css */
 
-.header-wrapper {
+/* Navbar container */
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 85%;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 15px 0;
+  background-color: #8ba776; /* Background color for the header */
+  padding: 10px 20px;
 }
 
-.image-wrapper {
-  max-width: 200px;
+/* Logo image */
+.logo-img {
+  height: 3rem;
+  width: auto;
+  padding-left: 2.5rem;
 }
 
-.image-wrapper img {
+/* Regular navigation menu */
+.navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation ul li {
+  padding: 0 15px;
+}
+
+.navigation ul li a {
+  font-size: smaller;
+  font-weight: 500;
+  color: #ffffff; 
+  text-decoration: none;
+  position: relative; 
+}
+
+/* Hover effect for regular navigation links */
+.navigation ul li a::before {
+  content: ""; /* Add a pseudo-element to create the hover effect */
+  position: absolute;
+  bottom: -2px; /* Position the pseudo-element below the text */
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 2px; /* Set the height of the hover underline */
+  background-color: #f4ce14; /* Background color for the hover underline */
+  transform: scaleX(0); /* Initially, set the width of the underline to zero */
+  transform-origin: left; /* Set the transformation origin to the left edge */
+  transition: transform 0.2s ease; /* Smooth transition for the underline animation */
 }
 
-@media only screen and (max-width: 1024px) {
-  .header {
-    position: fixed;
-  }
-
-  .header-wrapper {
-    width: 100%;
-    padding: 0px 30px;
-    position: fixed;
-    z-index: 2;
-    border-bottom: 10px solid #495e57;
-  }
-
-  .hamburger {
-    z-index: 3;
-  }
-
-  .header-wrapper .mobile-nav ul {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    text-align: right;
-    padding: 60px 30px 30px;
-    background: rgba(255, 255, 255, 1);
-    z-index: 1;
-    border-bottom: 10px solid #495e57;
-  }
-
-  .header-wrapper .mobile-nav ul li {
-    padding: 7px 0;
-  }
+.navigation ul li a:hover::before {
+  transform: scaleX(1); /* Increase the width of the underline to 100% on hover */
 }
 
-@media only screen and (max-width: 350px) {
-  .image-wrapper img {
-    height: 30px;
-  }
+/* Active link style for regular navigation */
+.navigation ul li .active-links.active {
+  color: #495e57; /* Text color for active link */
 }
+
+
+

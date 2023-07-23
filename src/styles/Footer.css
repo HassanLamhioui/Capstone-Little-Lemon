@@ -10,29 +10,41 @@
 }
 
 .logoFooter {
-  width: 120px;
+  width: 90px;
   height: 100px;
 }
 
 .socialMedia {
   display: flex;
   gap: 10px;
+  margin-left: 80px;
 }
 
 .socialIcon {
   width: 30px;
   height: 30px;
   transition: transform 0.3s ease-in-out;
+  color: #d3b80e;
 }
 
 .socialIcon:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
-.contactInfo, .usefulLinks {
-  color: #fff;
+.contactInfo > h2{
+  color: #000000;
+  padding-bottom: 15px;
 }
-
+.contactInfo{
+  color: #d5f1d9;
+}
+.usefulLinks{
+  color: #000000;
+}
+.socialText{
+  color: #000000;
+  font-size: 22px;
+}
 .usefulLinks ul {
   padding: 0;
   list-style: none;
@@ -43,7 +55,7 @@
 }
 
 .usefulLinks ul li a {
-  color: #f4ce14;
+  color: #d5f1d9;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }

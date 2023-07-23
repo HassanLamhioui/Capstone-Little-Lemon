@@ -14,7 +14,7 @@ const SpecialsCard = () => {
       price: "$9.99",
       description:
         "Our Cobb Salad: Fresh lettuce, grilled chicken, tomatoes, avocado, eggs, blue cheese, and crispy bacon, topped with homemade vinaigrette. Satisfying and delicious!",
-      order: "Order a delivery",
+      order: "Food at Your Doorstep",
     },
     {
       image: Meal2,
@@ -22,7 +22,7 @@ const SpecialsCard = () => {
       price: "$5.99",
       description:
         "Enjoy our Gyros, a Greek classic featuring seasoned, tender meat cooked on a vertical rotisserie. Served in warm pita with fresh toppings like juicy tomatoes, crisp onions, and creamy tzatziki sauce. A burst of flavors in every bite!",
-      order: "Order a delivery",
+      order: "Food at Your Doorstep",
     },
     {
       image: Meal3,
@@ -30,7 +30,7 @@ const SpecialsCard = () => {
       price: "$5.00",
       description:
         "Savor our velvety Lemon Curd, a perfect blend of tangy and sweet. Elevate your treats with this sunny delight!",
-      order: "Order a delivery",
+      order: "Food at Your Doorstep",
     },
   ];
 
@@ -54,15 +54,10 @@ const SpecialsCard = () => {
             </div>
             <p>{description}</p>
             <Link to="#">
-              <h4>
+              <button className="order-button">
                 {order}
-                {
-                  <MdDeliveryDining
-                    size={30}
-                    style={{ color: "#333333", marginLeft: "10px" }}
-                  />
-                }
-              </h4>
+                {<MdDeliveryDining className="delivery-icon" size={30} />}
+              </button>
             </Link>
           </div>
         </div>
