@@ -25,14 +25,6 @@ const NavLinks = (props) => {
       <motion.li
         initial={animateFrom}
         animate={animateTo}
-        transition={{ delay: 0.1 }}
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        <Link to="/about">About</Link>
-      </motion.li>
-      <motion.li
-        initial={animateFrom}
-        animate={animateTo}
         transition={{ delay: 0.15 }}
         onClick={() => props.isMobile && props.closeMobileMenu()}
       >
@@ -55,6 +47,14 @@ const NavLinks = (props) => {
         onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         <Link to="/order-online">Order Online</Link>
+      </motion.li>
+      <motion.li
+        initial={animateFrom}
+        animate={animateTo}
+        transition={{ delay: 0.1 }}
+        onClick={() => props.isMobile && props.closeMobileMenu()}
+      >
+        <Link to="/about">About</Link>
       </motion.li>
       <motion.li
         initial={animateFrom}

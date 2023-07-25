@@ -5,14 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #8ba776; /* Background color for the header */
+  background-color: #ffffff; /* Background color for the header */
   padding: 10px 20px;
 }
 
 /* Logo image */
 .logo-img {
   height: 3rem;
-  width: auto;
+  width: 220px;
   padding-left: 2.5rem;
 }
 
@@ -27,11 +27,13 @@
 }
 
 .navigation ul li a {
-  font-size: smaller;
+  font-size:medium;
   font-weight: 500;
-  color: #ffffff; 
+  color: #495e57; 
   text-decoration: none;
-  position: relative; 
+  position: relative;
+  display: inline-block; /* Add this line to enable width scaling */
+  transition:0.3s ease-in-out;
 }
 
 /* Hover effect for regular navigation links */
@@ -47,7 +49,10 @@
   transform-origin: left; /* Set the transformation origin to the left edge */
   transition: transform 0.2s ease; /* Smooth transition for the underline animation */
 }
-
+/* Hover effect for the width of the link */
+.navigation ul li a:hover {
+  transform: scaleX(1.2); /* Increase the width of the link on hover */
+}
 .navigation ul li a:hover::before {
   transform: scaleX(1); /* Increase the width of the underline to 100% on hover */
 }

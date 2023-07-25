@@ -4,17 +4,17 @@
   display: flex;
   justify-content: space-between;
   align-items:flex-start;
-  background-image: url("../assets/BackgroundBookingPage3.jpeg");
+  background-image: url("../assets/BackgroundBookingPage1.jpg");
   background-size: cover;
-  background-position: center;
+  background-position:left;
   padding: 20px;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 1rem solid;  
+border-top-color: #f4ce14;
 }
 
 .booking-form {
-  flex: 1;
-  max-width: 450px;
+  max-width: 600px;
   padding: 20px;
   background-color: rgba(248, 248, 248, 0.9);
   border: 1px solid #ccc;
@@ -23,30 +23,9 @@
   margin-left: 20px;
 }
 
-.description {
-  flex: 1;
-  max-width: 40%;
-  margin-right: 20px;
-  color: #fff; /* Text color for the description */
-}
-
-form {
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #adadad;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 fieldset {
   border: none;
-  padding: 0;
-}
-
-.field {
-  margin-bottom: 5px;
+  width: 400px;
 }
 
 label {
@@ -55,10 +34,7 @@ label {
   font-weight: bold;
   margin-bottom: 8px;
 }
-
-input,
-select,
-button {
+input{
   box-sizing: border-box;
   width: 100%;
   padding: 12px;
@@ -66,7 +42,6 @@ button {
   border-radius: 5px;
   font-size: 16px;
 }
-
 input[type="datetime-local"] {
   /* To remove default arrow in datetime-local input */
   -webkit-appearance: none;
@@ -85,25 +60,20 @@ input[type="datetime-local"] {
   margin-top: 4px;
 }
 
-.reserve-btn {
-  margin: 0;
-  padding: 12px;
+.reserve-btn input{
   background-color: #3f834a;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  color: #f4ce14;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
-.reserve-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Optional: Customize select dropdown appearance */
-.options {
-  position: relative;
+.reserve-btn:hover input{
+  background-color: #f4ce14;
+  color: #3f834a;
 }
 
 .select-arrow {
@@ -115,34 +85,85 @@ input[type="datetime-local"] {
 }
 
 /* Optional: Add more styling to make the form visually appealing */
-/* For example, add background color, box shadows, etc. */
-
-/* Additional styling for select dropdown */
-select {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Optional: Style the occasion select dropdown differently */
-.field.occasion select {
-  background-color: #f0f0f0;
-  border-color: #ddd;
-}
 
 /* Optional: Add some spacing between input fields */
 .field + .field {
-  margin-top: 15px;
+  margin-top: 5px;
+}
+/* Optional: Style the occasion select dropdown differently */
+.field-occasion select {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional: Style the form header */
-.form-header {
+/* Additional styling for modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
   text-align: center;
+}
+
+.modal h2 {
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
-/* Optional: Style the form footer */
-.form-footer {
-  text-align: center;
-  margin-top: 30px;
+.modal h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  padding: 10px 20px;
+  margin-left: 30px;
+  background-color: #f4ce14;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #495e57;
+  color: #f4ce14;
+}
+
+/* Smooth transition for modal */
+.modal-entering,
+.modal-exiting {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.modal-entered {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease, transform 300ms ease;
 }

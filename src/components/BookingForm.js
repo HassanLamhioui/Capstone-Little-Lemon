@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/BookingForm.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const schema = yup.object({
   firstName: yup.string().required("First name is a required field!"),
@@ -14,14 +17,13 @@ const schema = yup.object({
   telephone: yup
     .string()
     .required("Telephone is a required field!")
-    .matches(
-      /^(\+\d{2,3}\s)?\(?\d{3}\)?[\s.-]\d{2}[\s.-]\d{3}[\s.-]\d{4}$/,
-      "Phone number must match the form 1111 00 00 00 00"
-    ),
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(10, "too short")
+    .max(12, "too long"),
   guests: yup
     .number()
     .min(1, "There must be at least 1 guest!")
-    .required("Please specify number of guests per table!"),
+    .required("Please specify the number of guests per table!"),
   date: yup.string().required("Please select date and time!"),
 });
 
@@ -29,6 +31,7 @@ function Form() {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -38,6 +41,13 @@ function Form() {
 
   const formSubmit = (data) => {
     console.table(data);
+    toggleModal(); // Show the modal on successful form submission
+    reset(); // Reset the form after submission
+  };
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal((prevShowModal) => !prevShowModal);
   };
 
   return (
@@ -51,8 +61,11 @@ function Form() {
               placeholder="First Name"
               name="firstName"
               {...register("firstName")}
+              aria-invalid={errors.firstName ? "true" : "false"}
             />
-            <span className="error-message">{errors.firstName?.message}</span>
+            <span className="error-message" role="alert">
+              {errors.firstName?.message}
+            </span>
           </div>
           <div className="field">
             <label htmlFor="lastName">Last Name</label>
@@ -61,8 +74,11 @@ function Form() {
               placeholder="Last Name"
               name="lastName"
               {...register("lastName")}
+              aria-invalid={errors.lastName ? "true" : "false"}
             />
-            <span className="error-message">{errors.lastName?.message}</span>
+            <span className="error-message" role="alert">
+              {errors.lastName?.message}
+            </span>
           </div>
           <div className="field">
             <label htmlFor="email">Email</label>
@@ -71,31 +87,33 @@ function Form() {
               placeholder="text@example.com"
               name="email"
               {...register("email")}
+              aria-invalid={errors.email ? "true" : "false"}
             />
-            <span className="error-message">{errors.email?.message}</span>
+            <span className="error-message" role="alert">
+              {errors.email?.message}
+            </span>
           </div>
           <div className="field">
-            <label htmlFor="telephone">Telephone</label>
+            <label htmlFor="telephone">Telephone (XXX-XXX-XXXX)</label>
             <input
               type="tel"
-              placeholder="1111 00 00 00 00"
+              placeholder="Phone number"
               name="telephone"
               {...register("telephone")}
+              aria-invalid={errors.telephone ? "true" : "false"}
             />
-            <span className="error-message">{errors.telephone?.message}</span>
+            <span className="error-message" role="alert">
+              {errors.telephone?.message}
+            </span>
           </div>
-
-          {/*<div className="guestsdate">*/}
-          <div className="field occasion">
+          <div className="field-occasion">
             <label htmlFor="occasion">Occasion (optional)</label>
-            <div className="options">
-              <select name="occasion" {...register("occasion")}>
-                <option value="select">Select occasion</option>
-                <option value="birthday">Birthday</option>
-                <option value="engagement">Engagement</option>
-                <option value="anniversary">Anniversary</option>
-              </select>
-            </div>
+            <input type="text" name="occasion" list="occasionList" placeholder="Select occasion"/>
+            <datalist id="occasionList">
+              <option value="Birthday"/>
+              <option value="Engagement"/>
+              <option value="Anniversary"/>
+            </datalist>
           </div>
           <div className="field guest">
             <label htmlFor="guests">Guests</label>
@@ -104,28 +122,48 @@ function Form() {
               placeholder="2"
               name="guests"
               {...register("guests")}
+              aria-invalid={errors.guests ? "true" : "false"}
             />
-            <span className="error-message">{errors.guests?.message}</span>
+            <span className="error-message" role="alert">
+              {errors.guests?.message}
+            </span>
           </div>
-          {/*</div>*/}
-
           <div className="field">
             <label htmlFor="date">Date & Time</label>
-            <input type="datetime-local" name="date" {...register("date")} />
-            <span className="error-message">{errors.date?.message}</span>
+            <input
+              type="datetime-local"
+              name="date"
+              {...register("date")}
+              aria-invalid={errors.date ? "true" : "false"}
+            />
+            <span className="error-message" role="alert">
+              {errors.date?.message}
+            </span>
           </div>
-          <button className="reserve-btn" type="submit">
-            Reserve
-          </button>
+          <div className="reserve-btn">
+            <input type="submit" value="Reserve"/>
+          </div>
         </fieldset>
       </form>
-      <div className="description">
-        <p>
-          Experience the epitome of luxury and tradition at Little Lemon. Book your table for an unforgettable dining journey.
-          <br/>
-          Immerse yourself in culinary delights and impeccable service.
-        </p>
-      </div>
+
+      {/* Modal for confirmation */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Booking Confirmation</h2>
+            <h3>
+              Your booking has been confirmed! Check your email for details.
+            </h3>
+            <h4>
+              Welcome aboard! If there's anything you need, just give us a
+              shout.
+            </h4>
+            <button className="close-btn" onClick={toggleModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

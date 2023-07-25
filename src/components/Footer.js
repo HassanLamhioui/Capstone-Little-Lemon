@@ -60,6 +60,9 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      <div className="copyright">
+        <p>© 2023 Little Lemon Ltd. All rights reserved.</p>
+      </div>
     </footer>
   );
 };

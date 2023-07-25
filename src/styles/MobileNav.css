@@ -3,14 +3,8 @@
   display: none;
 }
 
-/* Media query for mobile devices (max-width: 1024px) */
-@media screen and (max-width: 1024px) {
-  /* Hide the regular navigation */
-  .navigation {
-    display: none;
-  }
-
-  /* Show the mobile navigation */
+/* Mobile navigation styles for screens up to 768px (e.g., smartphones) */
+@media screen and (max-width: 768px) {
   .mobile-nav {
     display: flex;
   }
@@ -42,34 +36,15 @@
   .mobile-nav ul li a {
     font-size: smaller;
     font-weight: 500;
-    color: #ffffff; /* Text color for mobile navigation links */
+    color: #495e57; /* Text color for mobile navigation links */
     text-decoration: none;
   }
-
+.mobile-nav ul li a:hover{
+  color: #495e57; /* Text color for active mobile link */
+  transition: transform 0.2s ease; /* Smooth transition for the underline animation */
+}
+  /* Active link style for mobile navigation */
   .mobile-nav ul li .active-links.active {
     color: #495e57; /* Text color for active mobile link */
-  }
-}
-/* Media query for mobile devices (max-width: 768px) */
-
-@media screen and (max-width: 768px) {
-  /* Adjust the logo image size further for small screens */
-  .logo-img {
-    height: 2rem;
-    padding-left: 1rem;
-  }
-
-  /* Adjust padding for better spacing */
-  .header {
-    padding: 10px;
-  }
-
-  /* Style mobile navigation links for small screens */
-  .mobile-nav ul li {
-    padding: 8px;
-  }
-
-  .mobile-nav ul li a {
-    font-size: 12px;
   }
 }
